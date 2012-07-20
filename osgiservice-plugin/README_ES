@@ -1,0 +1,44 @@
+OSGI PlugIn - Version 0.1  - by Leonardo G. Leenen
+ 
+ 1. NECESIDAD
+ -----------------------------------------------------------------------
+  Durante las pruebas y construccion de proyectos scratch  de OSGI vimos que hay una enorme variedad de configuraciones y formas "diferentes" de comenzar 
+  un nuevo proyecto. 
+  
+  Por eso, hemos intentando crear un artefacto de maven para poder a partir de este crear nuevos artefactos y evitar de esta manera el enorme trabajo de
+  de startup que requiere cualquier aplicacion. 
+  
+  Las pruebas se hicieron sobre JbossAs7 y Apache Felix con exito. 
+ 
+ 
+ 2. FUNCIONAMIENTO 
+ -----------------------------------------------------------------------
+Para crear un nuevo plugin solamente hay que seguir dos pasos: 
+
+1. Compilar el plugin e instalarlo en el repo-local. Para ello dentro del directorio de osgiservice-plugin ejecutamos el siguiente comando 
+   
+   mvn install 
+   
+2. Crear el nuevo plugin a partir del artefacto con la siguiente sintaxis. 
+	
+   mvn archetype:generate				   			    \
+   	 -DarchetypeGroupId=ar.com.agtech.plugins 			\
+   	 -DarchetypeArtifactId=osgiservice-plugin 			\
+   	 -DarchetypeVersion=1.0							    \
+   	 -DgroupId=<grupo_preferido>		                \
+   	 -DartifactId=<nombre_artefacto_deseado> 
+   	 -Dversion=<version_deseada>	 
+  
+ A partir de alli, se pueden crear todos los plugins que se desee. 
+ 
+ 
+ 3. PROXIMOS PASOS 
+ -----------------------------------------------------------------------
+ El proximo paso sera inluir los siguientes features 
+ 
+    a. PlugIn para Forge. Crear un plugin capaz de crear proyectos desde forge. Actualmente hay uno de Paul Bakker pero esta desactualizado 
+    b. Incluir mensajes personalizados cuando se activa/desactiva el plugin
+    c. Crear un plugin para proyectos WAB
+    d. Exponer servicios via REST
+    e. Servicios con acceso a JPA 
+    f. Actualizar la documentacion en ingles 
